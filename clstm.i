@@ -198,6 +198,10 @@ void ctrain_accelerated(INetwork *net, Sequence &xs, Classes &cs, Float lo=1e-5)
 void cpred(INetwork *net, Classes &preds, Sequence &xs);
 void mktargets(Sequence &seq, Classes &targets, int ndim);
 
+std::shared_ptr<INetwork> proto_clone_net(INetwork *net);
+std::shared_ptr<INetwork> load_as_proto(string);
+void save_as_proto(const string &fname, INetwork *net);
+
 std::shared_ptr<INetwork> make_layer(string);
 std::shared_ptr<INetwork> make_net_init(string,string);
 
