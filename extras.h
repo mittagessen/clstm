@@ -264,7 +264,7 @@ void write_png(const char *name, mdarray<float> &image);
 
 inline bool anynan(mdarray<float> &a) {
   for (int i = 0; i < a.size(); i++)
-    if (isnan(a[i])) return true;
+    if (std::isnan(a[i])) return true;
   return false;
 }
 

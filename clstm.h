@@ -422,7 +422,7 @@ inline bool anynan(ocropus::Sequence &a) {
   for (int i = 0; i < a.size(); i++) {
     for (int j = 0; j < ROWS(a[i]); j++) {
       for (int k = 0; k < COLS(a[i]); k++) {
-        if (isnan(a[i](j, k))) return true;
+        if (std::isnan(a[i](j, k))) return true;
       }
     }
   }
