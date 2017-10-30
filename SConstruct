@@ -1,3 +1,4 @@
+#! /usr/bin/env python 
 # -*- Python -*-
 import os,sys,os.path
 import distutils.sysconfig
@@ -8,7 +9,7 @@ elif os.path.isdir(".git"):
     hgversion = os.popen("git rev-list HEAD | sed 1q").read().strip()
 else:
     hgversion = os.popen("date").read().strip()
-print "version",hgversion
+print("version {}".format(hgversion))
 
 # A bunch of utility functions to make the rest of the SConstruct file a little simpler.
 
