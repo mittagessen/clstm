@@ -28,11 +28,13 @@ function pre_build {
 		&& ./configure --prefix=$BUILD_PREFIX \
 		&& make \
 		&& make install)
+	echo "XXXXXXXXXXXXXX: Installing eigen3"
 	curl -O -L http://dl.fedoraproject.org/pub/epel/6/i386//eigen3-devel-3.2.5-2.el6.noarch.rpm
 	rpm -Uvh eigen3-devel-3.2.5-2.el6.noarch.rpm
+	echo "XXXXXXXXXXXXXX: Done"
 	yum install libpng libpng-devel
 
-	fi
+    fi
 }
 
 function build_wheel {
