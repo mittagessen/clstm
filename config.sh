@@ -12,9 +12,8 @@ function pre_build {
         brew update
         brew install swig # automake
     else
-        yum install -y pcre-devel libpng-devel
-	yum groupinstall "Development Tools"
-	yum install automake
+        yum install -y pcre-devel libpng-devel libpng
+	yum install -y automake
         curl -O -L http://downloads.sourceforge.net/swig/swig-3.0.10.tar.gz
         tar xzf swig-3.0.10.tar.gz
         (cd swig-3.0.10 \
