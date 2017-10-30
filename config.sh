@@ -50,4 +50,5 @@ function build_wheel {
 }
 
 function run_tests {
+	:
 }
