@@ -27,7 +27,7 @@ function pre_build {
 		&& ./autogen.sh \
 		&& ./configure --prefix=$BUILD_PREFIX \
 		&& make \
-		&& make install \
+		&& make install)
 	yum install libpng libpng-devel
 
 	fi
