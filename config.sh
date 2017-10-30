@@ -12,7 +12,7 @@ function pre_build {
         brew update
         brew install swig # automake
     else
-        yum install -y pcre-devel
+        yum install -y pcre-devel libpng-devel
 	yum groupinstall "Development Tools"
 	yum install automake
         curl -O -L http://downloads.sourceforge.net/swig/swig-3.0.10.tar.gz
@@ -34,8 +34,6 @@ function pre_build {
 	(cd eigen-eigen-5a0156e40feb \
 		&& mkdir /usr/include/eigen3 \
 		&& cp -R Eigen /usr/include/eigen3)
-	yum install libpng libpng-devel
-
     fi
 }
 
@@ -53,12 +51,4 @@ function build_wheel {
 }
 
 function run_tests {
-    # Runs tests on installed distribution from an empty directory
-    export NOSE_PROCESS_TIMEOUT=600
-    export NOSE_PROCESSES=0
-    echo "OS X? $IS_OSX"
-    rm -f /usr/local/lib/libglpk*
-    # Run Pillow tests from within source repo
-    cp ../test_swiglpk.py .
-    nosetests -v
 }
