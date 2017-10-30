@@ -28,7 +28,7 @@ function pre_build {
 		&& ./configure --prefix=$BUILD_PREFIX \
 		&& make \
 		&& make install)
-	yum install libpng libpng-devel
+	yum install libpng libpng-devel libeigen3-dev
 
 	fi
 }
