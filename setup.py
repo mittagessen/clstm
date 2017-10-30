@@ -75,7 +75,7 @@ clstm = Extension('_clstm',
         sources=['clstm.i','clstm.cc','clstm_prefab.cc','extras.cc',
                  'ctc.cc','clstm_proto.cc','clstm.pb.cc'])
 
-print "making proto file"
+print("making proto file")
 os.system("protoc clstm.proto --cpp_out=.")
 
 setup(
