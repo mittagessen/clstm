@@ -13,6 +13,7 @@ function pre_build {
         brew install swig # automake
     else
         yum install -y pcre-devel libpng-devel libpng
+	yum install -y protobuf protobuf-compiler protobuf-devel
 	yum install -y automake
         curl -O -L http://downloads.sourceforge.net/swig/swig-3.0.10.tar.gz
         tar xzf swig-3.0.10.tar.gz
@@ -20,13 +21,6 @@ function pre_build {
 				&& ./configure --prefix=$BUILD_PREFIX \
 				&& make \
 				&& make install)
-	curl -O -L https://github.com/google/protobuf/archive/v3.4.1.tar.gz
-	tar xzf v3.4.1.tar.gz
-	(cd protobuf-3.4.1 \
-		&& ./autogen.sh \
-		&& ./configure --prefix=$BUILD_PREFIX \
-		&& make \
-		&& make install)
 	pip install numpy
 	curl -O -L http://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2
 	tar xvf 3.3.4.tar.bz2
