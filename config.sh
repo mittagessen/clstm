@@ -31,7 +31,7 @@ function pre_build {
 	curl -O -L http://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2
 	tar xvf 3.3.4.tar.bz2
 	mv eigen-eigen-5a0156e40feb eigen3
-	mv eigen3 /usr/include
+	cp -R eigen3 /usr/include
     fi
 }
 
