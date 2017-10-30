@@ -1,19 +1,98 @@
-sudo: false
-language: c++
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - scons
-    - gcc-4.8
-    - g++-4.8
-    - libeigen3-dev
-    - libprotobuf-dev
-    - protobuf-compiler
+language: python
+python: 3.5
+sudo: required
+dist: trusty
+services: docker
+env:
+  global:
+  - PLAT=x86_64
+  - UNICODE_WIDTH=32
+  - NP_BUILD_DEP="numpy==1.7.1"
+  - PLAT=x86_64
+  - UNICODE_WIDTH=32
+  - secure: CPuTZfxH/Ru+DuyZM418BsJV8HLqMhDnAvSjsYb+qr6N+RvHfIXPW+upCwI9TOaJc3XDcHU2DWuAiBKci2x9x180yx8jdT8M41HwRnep5Y3V4rWEQJrvuKrD7IzKXmvZBm3HRyz7JzKaAjVaKPY2Ohbxwo7hhi5gAX92iefql4Aeb4h9Gn7lnVr3UicZg6riyGmkCbksiOkiE3kunkOmhy2SZJ0BaMtzO5Nn7CFN7igT+Z2f3cQEXQStS4Zs4GseBt7s1sN59Oj1FDdvhkRZgt21nULNN257SRPOzQlkLykKvapUJRcvh24Okr8exZEOP0gCU3WO3Yp0FtEJUv/31dB7Iu1+38XvdBr39PuAA7B6hJgaoKltYUQv2LCaMW4bA1ZlLUWzvZFfiy9GCkwoJTgktP0PdoOiaUL6GIs+yiiETOTf5zDpONoj7VY5wEmjFNY1K8MnCa/+Npj8+bDGoS4gBQ1/lONtAzGR1VgBarZ0eOUqu7uN+IDgGTw7Ea2xcqSMNOMJpgO5C9nRBjy7agnPPZHcZH06x5NuUC6CrZA3KMnglpzifbcOK7lYxpNOwXh0bnF/xDK9k75fGHtvdYM3I0S5nKFkpZUIP62Zt7ZT1qTiId0vEtgOFXsUryB2i8x1Ycoe/VoKdnJnrvloS4ZDonzxqI4EIqMXSlVvdAE=
+  - secure: Ao7/mwrhTEOjmJ7V78QEXM+dxco1LP3F9/3+SqtSq0zEt+j5mTW+MHZ0g94p24qXEZhXKGbLxsC9colZVKgPSOboMnkY0wNGz5JAwzLWNs6JDnf3nj+zvOIkhz80n6nNws/xD5zuMClfEI5O9QGjWQAneNWTq2EmeexyFk7S3O7mTOIbWyggdCKEN7outhSc1d8zOzLzbR2V5q3egmYkWzFSCKJds1ORZzViILfzF8PX3uPp+wlLGAErsy4U4VfHU8v+888dTKM7bjW3UsjGXtUWCSjtV+EGyQtIM1OAM0Jb5EZDxELnt5Bshm8cEGpmY2KgQVn+ehmiicNt6lE1v8AlDwcF1hj8o9vaXS0WF/GjSjO4LF4ObsQ5AJa21xLeKS0OzJaNUOKy4sDJoOJuLNoPaEteC1GljNowfJ9v4Me7A9U2fsHLOEHjZLGWoCquoisr409dIk0hPH8e4eAOELqQ8S4XxZUgJw0v1NXZMXZ55ZoTv/7U536yV+CpaHpWqi4psqo0Ed27XUCqRKqen3rC6GpKe89EOd0bh7HtV4IX4Q9GvhSsoOuNQe5qWXjevTW6q959WcyTAywcufnS6AyRS91WIuLZ0JSLYqjIGv344dczRiFHlccAJhxYyY5ey1Lfy8hU30QxQt7J1V8J4hqriK4yG6WvrMPVkk69ccM=
+branches:
+  only:
+  - master
+  - devel
+  - "/^[0-9]+\\.[0-9]+\\.[0-9]+[.0-9ab]*$/"
+matrix:
+  exclude:
+  - python: 3.5
+  include:
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - UNICODE_WIDTH=16
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - PLAT=i686
+    - UNICODE_WIDTH=16
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.4
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.4
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - TOXENV=py35
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - TOXENV=py36
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - PLAT=i686
+  - os: osx
+    language: objective-c
+    env:
+    - MB_PYTHON_VERSION=2.7
+  - os: osx
+    language: objective-c
+    env:
+    - MB_PYTHON_VERSION=3.4
+  - os: osx
+    language: objective-c
+    env:
+    - MB_PYTHON_VERSION=3.5
+  - os: osx
+    language: objective-c
+    env:
+    - MB_PYTHON_VERSION=3.6
+before_install:
+- "(git clone https://github.com/matthew-brett/multibuild.git && cd multibuild)"
+- TEST_DEPENDS="nose"
+- source multibuild/common_utils.sh
+- source multibuild/travis_steps.sh
+- before_install
 install:
-  - uname -a
-  - g++ --version
-  - ls /usr/bin/g++*
+- build_wheel . $PLAT
+before_cache:
+- set +e
 script:
-  - scons CXX=g++-4.8
+- install_run $PLAT
+- ls ${TRAVIS_BUILD_DIR}/wheelhouse/
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    branch: master
+    tags: true
