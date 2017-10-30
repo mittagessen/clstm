@@ -80,7 +80,7 @@ os.system("protoc clstm.proto --cpp_out=.")
 
 setup(
     name='clstm',
-    version='0.0.12',
+    version='0.0.1',
     cmdclass=custom_cmd_class,
     author='Thomas Breuel',
     description='clstm - swig python bindings for the clstm library',
@@ -88,13 +88,11 @@ setup(
     url='https://github.com/tmbdev/clstm',
     long_description='',
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
         'Topic :: Scientific/Engineering',
         'Topic :: Software Development',
         'Intended Audience :: Science/Research',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
     ],
     py_modules = ["clstm"],
     ext_modules = [clstm],
