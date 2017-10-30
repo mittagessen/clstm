@@ -29,10 +29,10 @@ function pre_build {
 		&& make \
 		&& make install)
 	pip install numpy
-	echo "XXXXXXXXXXXXXX: Installing eigen3"
+	echo "XXXXXXXXXXXXXX: Installing eigen3" >&2
 	curl -O -L http://dl.fedoraproject.org/pub/epel/6/i386//eigen3-devel-3.2.5-2.el6.noarch.rpm
 	rpm -Uvh eigen3-devel-3.2.5-2.el6.noarch.rpm
-	echo "XXXXXXXXXXXXXX: Done"
+	echo "XXXXXXXXXXXXXX: Done" >&2
 	yum install libpng libpng-devel
 
     fi
