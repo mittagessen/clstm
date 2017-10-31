@@ -44,7 +44,7 @@ build_requires= []
 try:
     import numpy
 except ImportError:
-    build_requires = ['numpy']
+    build_requires = ['numpy>=1.9.0']
 
 hgversion = 'unknown'
 
@@ -81,5 +81,5 @@ setup(
     py_modules = ["clstm"],
     ext_modules = [clstm],
     setup_requires = build_requires,
-    install_requires = ['numpy'],
+    install_requires = ['numpy>=1.9.0'],
 )
