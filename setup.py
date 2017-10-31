@@ -62,7 +62,7 @@ os.system("protoc clstm.proto --cpp_out=.")
 
 setup(
     name='clstm',
-    version='0.0.4',
+    version='0.0.5',
     cmdclass=custom_cmd_class,
     author='Thomas Breuel',
     description='clstm - swig python bindings for the clstm library',
