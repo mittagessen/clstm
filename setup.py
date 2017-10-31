@@ -57,12 +57,12 @@ class CustomBuildExt(build_ext):
 
 custom_cmd_class['build_ext'] = CustomBuildExt
 
-install_requires = []
+build_requires= []
 
 try:
     import numpy
 except ImportError:
-    install_requires = ['numpy']
+    build_requires = ['numpy']
 
 hgversion = 'unknown'
 
@@ -96,6 +96,6 @@ setup(
     ],
     py_modules = ["clstm"],
     ext_modules = [clstm],
-    setup_requires = install_requires,
-    install_requires = install_requires,
+    setup_requires = build_requires,
+    install_requires = ['numpy'],
 )

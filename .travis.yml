@@ -60,22 +60,6 @@ matrix:
     env:
     - MB_PYTHON_VERSION=3.6
     - PLAT=i686
-  - os: osx
-    language: objective-c
-    env:
-    - MB_PYTHON_VERSION=2.7
-  - os: osx
-    language: objective-c
-    env:
-    - MB_PYTHON_VERSION=3.4
-  - os: osx
-    language: objective-c
-    env:
-    - MB_PYTHON_VERSION=3.5
-  - os: osx
-    language: objective-c
-    env:
-    - MB_PYTHON_VERSION=3.6
 before_install:
 - "(git clone https://github.com/matthew-brett/multibuild.git && cd multibuild)"
 - TEST_DEPENDS="nose"
