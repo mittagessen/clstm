@@ -21,7 +21,7 @@ function pre_build {
 				&& ./configure --prefix=$BUILD_PREFIX \
 				&& make \
 				&& make install)
-	pip install numpy
+	pip install numpy==1.9.0
 	curl -O -L http://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2
 	tar xvf 3.3.4.tar.bz2
 	mv eigen-eigen-5a0156e40feb eigen3
