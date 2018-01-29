@@ -51,7 +51,7 @@ hgversion = 'unknown'
 clstm = Extension('_clstm',
         libraries = ['png','protobuf'],
         include_dirs = ['/usr/include/eigen3', '/usr/local/include/eigen3', '/usr/local/include', '/usr/include/hdf5/serial'],
-        extra_compile_args = ['-std=c++11','-w', '-stdlib=libc++',
+        extra_compile_args = ['-std=c++11','-w',
             '-Dadd_raw=add','-DNODISPLAY=1','-DTHROW=throw',
             '-DHGVERSION="\\"'+hgversion+'\\""'],
         sources=['clstm.i','clstm.cc','clstm_prefab.cc','extras.cc',
